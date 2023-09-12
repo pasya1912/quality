@@ -99,7 +99,7 @@
                                     @elseif (auth()->user()->posisi === 'SPV' || auth()->user()->posisi === 'Manajer')
                                     <a href=" {{ route('projects.edit', $project->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Approval</a>
                                     <a href="{{ route('projects.deleteItem', ['id' => $project->id]) }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Hapus</a>
-                                    @elseif ($project->approval === null || $project->approval === '' || $project->approval === 'Decline' && (auth()->user()->posisi === 'LDR' || auth()->user()->posisi === 'JP'))
+                                    @elseif ($project->approval === null || $project->approval === '' || $project->approval === 'Decline' && (auth()->user()->posisi === 'LDR' || auth()->user()->posisi === 'JP' || auth()->user()->posisi === 'Sub JP'))
                                     <a href="{{ route('projects.edit', $project->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Edit</a>
                                     <a href="{{ route('projects.deleteItem', ['id' => $project->id]) }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Hapus</a>
                                     @else

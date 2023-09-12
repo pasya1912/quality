@@ -78,7 +78,7 @@
                             name="posisi"
                             :value="old('posisi')"
                             required
-                            placeholder="{{ __('Posisi') }}"
+                            placeholder="{{ __('Manajer/SPV/LDR/JP/Sub JP') }}"
                         />
                     </x-form.input-with-icon-wrapper>
                 </div>

@@ -6,7 +6,7 @@
         </x-slot>
     </x-sidebar.link>
 
-    @if (auth()->user()->posisi === 'LDR' || auth()->user()->posisi === 'JP')
+    @if (auth()->user()->posisi === 'LDR' || auth()->user()->posisi === 'JP' || auth()->user()->posisi === 'Sub JP')
     <x-sidebar.dropdown title="Check Sheet">
         <x-slot name="icon">
             <x-heroicon-o-view-grid class="flex-shrink-0 w-6 h-6" aria-hidden="true" />

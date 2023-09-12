@@ -76,7 +76,7 @@
                                     @elseif (auth()->user()->posisi === 'SPV' || auth()->user()->posisi === 'Manajer')
                                     <a href=" {{ route('products.edit', $product->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Approval</a>
                                     <a href="{{ route('products.delete', $product->id) }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Hapus</a>
-                                    @elseif ($product->approval === null || $product->approval === '' || $product->approval === 'Decline' && (auth()->user()->posisi === 'LDR' || auth()->user()->posisi === 'JP'))
+                                    @elseif ($product->approval === null || $product->approval === '' || $product->approval === 'Decline' && (auth()->user()->posisi === 'LDR' || auth()->user()->posisi === 'JP' || auth()->user()->posisi === 'Sub JP'))
                                     <a href=" {{ route('products.edit', $product->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Edit</a>
                                     <a href="{{ route('products.delete', $product->id) }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Hapus</a>
                                     @else
