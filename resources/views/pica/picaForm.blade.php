@@ -23,7 +23,7 @@
 
     <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
         <div class="overflow-x-auto mt-4 shadow-md sm:rounded-lg">
-            <table class="w-full text-xs md:text-xs text-left text-gray-500 border border-gray-300">
+            <table class="w-full text-xs md:text-xs text-left text-gray-500 border border-gray-300 table-sort">
                 <thead class="bg-gray-200">
                     <tr>
                         <th class="px-4 py-2">Tanggal</th>

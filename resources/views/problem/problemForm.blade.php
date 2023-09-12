@@ -112,14 +112,14 @@
         <div class="w-full lg:w-2/3 p-6 mt-6 lg:mt-0 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
             <div class="overflow-x-auto mt-4 shadow-md sm:rounded-lg">
 
-                <table class="w-full text-xs md:text-sm text-left text-gray-500 border border-gray-300">
+                <table class="w-full text-xs md:text-sm text-left text-gray-500 border border-gray-300 table-sort">
                     <thead class="bg-gray-200">
                         <tr>
-                            <th class="px-4 py-2 border text-center">Problem</th>
-                            <th class="px-4 py-2 border text-center">Date of Problem</th>
-                            <th class="px-4 py-2 border text-center">Costumer</th>
-                            <th class="px-4 py-2 border text-center">Model</th>
-                            <th class="px-4 py-2 border text-center">Detail Problem</th>
+                            <th class="px-4 py-2 border text-center">Problem <i class="fa fa-sort"></i></th>
+                            <th class="px-4 py-2 border text-center">Date of Problem <i class="fa fa-sort"></i></th>
+                            <th class="px-4 py-2 border text-center">Costumer <i class="fa fa-sort"></i></th>
+                            <th class="px-4 py-2 border text-center">Model <i class="fa fa-sort"></i></th>
+                            <th class="px-4 py-2 border text-center">Detail Problem <i class="fa fa-sort"></i></th>
                             <th class="px-4 py-2 border text-center">Action</th>
                         </tr>
                     </thead>
