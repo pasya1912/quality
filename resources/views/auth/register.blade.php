@@ -37,19 +37,20 @@
                 <div class="space-y-2">
                     <x-form.label for="posisi" :value="__('Posisi')" />
 
-                    <div class="relative">
-                        <select name="posisi" id="posisi" class="block w-full py-2 pr-10 border-gray-400 rounded-md focus:border-gray-400 focus:ring focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1 dark:text-gray-300 dark:focus:ring-offset-dark-eval-1">
-                            <option value="" selected disabled>Select</option>
+                    <x-form.input-with-icon-wrapper>
+                        <x-slot name="icon">
+                            <x-heroicon-o-user aria-hidden="true" class="w-5 h-5" />
+                        </x-slot>
+
+                        <x-form.select withicon id="posisi" class="block w-full" name="posisi" :value="old('posisi')" required>
+                            <option value="" disabled selected>Select</option>
                             <option value="Manajer">Manajer</option>
                             <option value="SPV">SPV</option>
                             <option value="LDR">LDR</option>
                             <option value="JP">JP</option>
                             <option value="Sub JP">Sub JP</option>
-                        </select>
-                        <x-slot name="icon">
-                            <x-heroicon-o-user aria-hidden="true" class="absolute inset-y-0 right-0 m-2 pointer-events-none w-5 h-5 text-gray-400" />
-                        </x-slot>
-                    </div>
+                        </x-form.select>
+                    </x-form.input-with-icon-wrapper>
                 </div>
 
                 <!-- Password -->
