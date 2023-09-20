@@ -111,7 +111,7 @@
 
                 <div>
                     <div class="font-bold">Data Verifikasi</div>
-                    <input type="file" name="data_verifikasi" class="w-full border-2 border-gray-300 px-3 py-2 rounded-md mb-3">
+                    <input type="file" multiple name="data_verifikasi" class="w-full border-2 border-gray-300 px-3 py-2 rounded-md mb-3">
                     @if ($pica->data_verifikasi)
                     <div class="mt-2">
                         <a href="{{ Storage::url($pica->data_verifikasi) }}" class="text-blue-500 underline" target="_blank">Lihat File</a>
