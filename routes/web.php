@@ -56,9 +56,9 @@ Route::middleware(['auth'])->group(function () {
 
     // PICA
     Route::get('/pica-form', [PicaController::class, 'index'])->name('pica.form');
-    Route::delete('/pica/delete/{id}', [PicaController::class, 'delete'])->name('pica.delete');
     Route::get('/pica/{id}/edit', [PicaController::class, 'edit'])->name('pica.editData');
     Route::put('/pica/{id}', [PicaController::class, 'update'])->name('pica.updateData');
+    Route::get('/pica/delete/{id}', [PicaController::class, 'delete'])->name('pica.delete');
     Route::resource('pica', PicaController::class);
 });
 
