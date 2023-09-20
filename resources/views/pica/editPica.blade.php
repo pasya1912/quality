@@ -86,7 +86,7 @@
 
                 <div>
                     <div class="font-bold">Quantity Sortir</div>
-                    <input type="number" name="quantity_sortir" class="w-full border-2 border-gray-300 px-3 py-2 rounded-md mb-3" value="{{ $pica->quantity_sortir }}">
+                    <input type="text" name="quantity_sortir" class="w-full border-2 border-gray-300 px-3 py-2 rounded-md mb-3" value="{{ $pica->quantity_sortir }}">
                 </div>
 
                 <div>
