@@ -42,7 +42,7 @@ class PicaController extends Controller
             'PIC' => 'required|string',
             'penyebab' => 'required|string',
             'countermeasure' => 'required|string',
-            'data_verifikasi.*' => 'required',
+            'data_verifikasi.*' => 'nullable',
             'tipe' => 'required|string'
         ]);
 
@@ -72,14 +72,16 @@ class PicaController extends Controller
 
         // Upload dan simpan file-file yang diunggah
         if ($request->hasFile('data_verifikasi')) {
+
             $uploadedFiles = $request->file('data_verifikasi');
+            // dd($request);
 
             foreach ($uploadedFiles as $file) {
                 // Generate nama unik untuk file
                 $fileName = uniqid() . '_' . $file->getClientOriginalName();
 
                 // Simpan file ke direktori yang Anda inginkan (misalnya, storage/app/public)
-                $file->storeAs('public', $fileName);
+                $file->storeAs('public/documents/', $fileName);
 
                 // Simpan path file ke dalam model atau database
                 $document = new DocumentPica();
@@ -103,6 +105,7 @@ class PicaController extends Controller
     public function update(Request $request, $id)
     {
         $pica = Pica::findOrFail($id);
+
         // Isi kolom-kolom dalam model Pica sesuai dengan data yang ingin disimpan
         $pica->tanggal = $request->input('tanggal');
         $pica->shift = $request->input('shift');
@@ -124,29 +127,31 @@ class PicaController extends Controller
         $pica->save();
 
         // Handle upload file
-        if ($request->hasFile('data_verifikasi') && $request->file('data_verifikasi')->isValid()) {
-            // dd($pica->documentPica);
-            Storage::delete($pica->documentPica[0]->data_verifikasi);
-            // $uploadedFiles = $request->file('data_verifikasi');
+        if ($request->hasFile('data_verifikasi')) {
+            foreach ($pica->documentPica as $document) {
+                Storage::delete('public/documents/' . $document->data_verifikasi);
+                $document->delete();
+            }
 
-            // foreach ($uploadedFiles as $file) {
-            //     // Generate nama unik untuk file
-            //     $fileName = uniqid() . '_' . $file->getClientOriginalName();
+            $uploadedFiles = $request->data_verifikasi;
 
-            //     // Simpan file ke direktori yang Anda inginkan (misalnya, storage/app/public)
-            //     $file->storeAs('public', $fileName);
+            // Periksa jumlah file yang diunggah
+            foreach ($uploadedFiles as $file) {
+                // Generate nama unik untuk file
+                $fileName = uniqid() . '_' . $file->getClientOriginalName();
 
-            //     // Simpan path file ke dalam model atau database
-            //     $document = new DocumentPica();
-            //     $document->id_pica = $pica->id;
-            //     $document->data_verifikasi = $fileName;
-            //     $document->save();
-            // }
-        } else {
-            return redirect()->back()->withErrors(['data_verifikasi' => 'File upload failed.']);
+                // Simpan $file ke direktori yang Anda inginkan (misalnya, storage/app/public)
+                $file->storeAs('public/documents/', $fileName);
+
+                // Simpan path $file ke dalam model atau database
+                $document = new DocumentPica();
+                $document->id_pica = $pica->id;
+                $document->data_verifikasi = $fileName;
+                $document->save();
+            }
+
+            return redirect()->route('pica.index')->with('success', 'Data Pica berhasil diubah.');
         }
-
-        return redirect()->route('pica.index')->with('success', 'Data Pica berhasil diubah.');
     }
 
     public function delete($id)
